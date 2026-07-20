@@ -68,10 +68,6 @@
 
   const heroFocus = document.querySelector('.hero-focus');
   const focusTerms = ['o seu negócio.', 'Quality Assurance.', 'Serviços SAP.', 'Hiperautomação.'];
-  const heroVisual = document.querySelector('[data-hero-visual]');
-  const heroSlides = [...document.querySelectorAll('[data-hero-slide]')];
-  const heroDots = [...document.querySelectorAll('[data-hero-dot]')];
-  const heroCounter = document.querySelector('[data-hero-counter]');
   let focusIndex = 0;
   let focusTimer;
   let focusTransitioning = false;
@@ -79,17 +75,6 @@
   const renderHeroState = index => {
     focusIndex = (index + focusTerms.length) % focusTerms.length;
     heroFocus.textContent = focusTerms[focusIndex];
-    heroSlides.forEach((slide, slideIndex) => {
-      const active = slideIndex === focusIndex;
-      slide.classList.toggle('is-active', active);
-      slide.setAttribute('aria-hidden', String(!active));
-    });
-    heroDots.forEach((dot, dotIndex) => {
-      const active = dotIndex === focusIndex;
-      dot.classList.toggle('is-active', active);
-      dot.setAttribute('aria-current', String(active));
-    });
-    if (heroCounter) heroCounter.textContent = `${String(focusIndex + 1).padStart(2, '0')} / 04`;
   };
 
   const transitionHeroState = nextIndex => {
@@ -122,14 +107,6 @@
   if (heroFocus) {
     renderHeroState(0);
     startHeroRotation();
-    heroDots.forEach((dot, index) => dot.addEventListener('click', () => {
-      transitionHeroState(index);
-      startHeroRotation();
-    }));
-    heroVisual?.addEventListener('mouseenter', stopHeroRotation);
-    heroVisual?.addEventListener('mouseleave', startHeroRotation);
-    heroVisual?.addEventListener('focusin', stopHeroRotation);
-    heroVisual?.addEventListener('focusout', startHeroRotation);
   }
 
   const tabs = [...document.querySelectorAll('[role="tab"]')];

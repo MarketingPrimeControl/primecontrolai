@@ -627,3 +627,131 @@ footer{padding:80px 0 25px;background:#00102b}.footer-main{display:grid;grid-tem
   .orbit-point.is-active i{animation:none!important}
   .orbit-point{transition:none}
 }
+
+/* Horizonte de luz integrado à órbita */
+.hero-lightfield{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-lightfield:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:4%;
+  width:min(620px,48vw);
+  height:190px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(118,184,255,.56) 0,rgba(49,113,255,.24) 24%,rgba(24,76,211,.08) 51%,transparent 72%);
+  filter:blur(18px);
+  opacity:.84;
+  animation:hero-light-breathe 5.8s ease-in-out infinite;
+}
+.hero-lightfield:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-3%;
+  width:min(1040px,78vw);
+  height:120px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(57,111,255,.24),rgba(10,44,126,.08) 52%,transparent 76%);
+  filter:blur(22px);
+}
+.hero-horizon{
+  position:absolute;
+  left:50%;
+  bottom:-420px;
+  width:min(1720px,122vw);
+  height:600px;
+  transform:translateX(-50%);
+  border-top:1px solid rgba(134,193,255,.94);
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(44,125,255,.22) 0,rgba(19,73,192,.12) 24%,rgba(2,18,56,.04) 54%,transparent 72%),
+    linear-gradient(180deg,rgba(26,72,175,.08),rgba(1,11,36,.42));
+  box-shadow:
+    0 -2px 12px rgba(107,177,255,.84),
+    0 -12px 42px rgba(50,119,255,.38),
+    0 -55px 125px rgba(37,88,224,.19),
+    inset 0 20px 65px rgba(45,100,225,.13);
+  opacity:.92;
+}
+.hero-particles{
+  position:absolute;
+  left:50%;
+  bottom:7%;
+  width:min(760px,58vw);
+  height:180px;
+  transform:translateX(-50%);
+  opacity:.54;
+  background-image:
+    radial-gradient(circle,rgba(218,236,255,.9) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(75,145,255,.78) 0 1px,transparent 1.5px);
+  background-position:0 0,21px 17px;
+  background-size:46px 38px,64px 54px;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 0 30%,transparent 74%);
+  mask-image:radial-gradient(ellipse at center,#000 0 30%,transparent 74%);
+  animation:hero-particles-rise 9s linear infinite;
+}
+.hero-light-beam{
+  position:absolute;
+  bottom:10%;
+  width:1px;
+  height:115px;
+  background:linear-gradient(180deg,transparent,rgba(111,174,255,.58));
+  box-shadow:0 0 8px rgba(77,142,255,.28);
+  transform-origin:bottom;
+  animation:hero-beam-rise 4.8s ease-in-out infinite;
+}
+.hero-light-beam:after{
+  content:"";
+  position:absolute;
+  left:-2px;
+  bottom:0;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#b8d7ff;
+  box-shadow:0 0 13px rgba(100,170,255,.9);
+}
+.hero-light-beam-a{left:40%;height:74px;animation-delay:-1.6s}
+.hero-light-beam-b{left:50%;height:128px;animation-delay:-3.2s}
+.hero-light-beam-c{left:61%;height:92px;animation-delay:-.4s}
+
+@keyframes hero-light-breathe{
+  0%,100%{opacity:.64;transform:translateX(-50%) scale(.92)}
+  50%{opacity:.96;transform:translateX(-50%) scale(1.06)}
+}
+@keyframes hero-particles-rise{
+  from{background-position:0 24px,21px 41px}
+  to{background-position:0 -52px,21px -67px}
+}
+@keyframes hero-beam-rise{
+  0%,100%{opacity:.16;transform:scaleY(.58)}
+  50%{opacity:.74;transform:scaleY(1)}
+}
+
+@media(max-width:1000px){
+  .hero-horizon{bottom:-375px;width:1380px;height:520px}
+  .hero-lightfield:before{bottom:5%;width:500px;height:155px}
+  .hero-particles{bottom:8%;width:580px;height:145px}
+}
+@media(max-width:700px){
+  .hero-horizon{bottom:-255px;width:880px;height:355px}
+  .hero-lightfield:before{bottom:5%;width:320px;height:120px;opacity:.64}
+  .hero-lightfield:after{width:520px;height:90px}
+  .hero-particles{bottom:8%;width:360px;height:120px;opacity:.34;background-size:54px 45px,72px 61px}
+  .hero-light-beam{bottom:9%;height:76px;opacity:.48}
+  .hero-light-beam-a{left:34%}
+  .hero-light-beam-c{left:67%}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-lightfield:before,
+  .hero-particles,
+  .hero-light-beam{animation:none!important}
+}
