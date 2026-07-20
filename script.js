@@ -119,7 +119,7 @@
     if (!reducedMotion) focusTimer = window.setInterval(() => transitionHeroState(focusIndex + 1), 4000);
   };
 
-  if (heroFocus && heroSlides.length) {
+  if (heroFocus) {
     renderHeroState(0);
     startHeroRotation();
     heroDots.forEach((dot, index) => dot.addEventListener('click', () => {

@@ -64,10 +64,24 @@
   <main id="conteudo">
     <section class="hero" id="inicio">
       <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-tech-field" aria-hidden="true"></div>
-      <div class="hero-orbit orbit-one" aria-hidden="true"></div>
-      <div class="hero-orbit orbit-two" aria-hidden="true"></div>
-      <div class="shell hero-layout">
+      <div class="hero-orbit-system" aria-hidden="true">
+        <span class="hero-orbit-glow"></span>
+        <span class="hero-orbit-plane hero-orbit-plane-a"><i></i></span>
+        <span class="hero-orbit-plane hero-orbit-plane-b"><i></i></span>
+        <span class="hero-orbit-plane hero-orbit-plane-c"><i></i></span>
+        <span class="hero-orbit-axis hero-orbit-axis-a"></span>
+        <span class="hero-orbit-axis hero-orbit-axis-b"></span>
+        <span class="hero-orbit-core"><img src="assets/prime-control-logo.png" alt=""></span>
+      </div>
+
+      <div class="hero-orbit-navigation" data-hero-visual aria-label="Alternar aplicação de inteligência artificial">
+        <button class="orbit-point orbit-point-business is-active" type="button" data-hero-dot="0" aria-label="Ver soluções para o seu negócio" aria-current="true"><i></i><span>Sob medida</span></button>
+        <button class="orbit-point orbit-point-qa" type="button" data-hero-dot="1" aria-label="Ver Quality Assurance" aria-current="false"><i></i><span>Quality Assurance</span></button>
+        <button class="orbit-point orbit-point-sap" type="button" data-hero-dot="2" aria-label="Ver Serviços SAP" aria-current="false"><i></i><span>Serviços SAP</span></button>
+        <button class="orbit-point orbit-point-hyper" type="button" data-hero-dot="3" aria-label="Ver Hiperautomação" aria-current="false"><i></i><span>Hiperautomação</span></button>
+      </div>
+
+      <div class="shell hero-layout hero-layout-centered">
         <div class="hero-copy">
           <p class="eyebrow reveal">Aceleradores &amp; Agentes de IA</p>
           <h1 class="reveal" aria-label="IA desenhada para o seu negócio, Quality Assurance, Serviços SAP e Hiperautomação. Pronta para a operação.">
@@ -81,73 +95,7 @@
             <a class="text-link" href="#arquitetura">Conhecer a arquitetura <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-
-        <aside class="hero-control reveal" aria-label="Infográficos Prime Control AI" data-hero-visual>
-          <div class="hero-visual-stage">
-            <div class="hero-visual-slide is-active" data-hero-slide="business" aria-hidden="false">
-              <div class="control-visual" aria-hidden="true">
-                <div class="control-spokes"><i></i><i></i><i></i><i></i></div>
-                <div class="control-ring ring-a"></div><div class="control-ring ring-b"></div>
-                <div class="control-core"><span class="pc-symbol"><img src="assets/prime-control-logo.png" alt="" aria-hidden="true"></span><span class="ai-lockup"><strong>Prime Control</strong><b>AI</b></span><small>govern · observe · evolve</small></div>
-                <span class="control-node node-qa"><i></i>Quality<br>Assurance</span>
-                <span class="control-node node-sap"><i></i>Serviços<br>SAP</span>
-                <span class="control-node node-hyper"><i></i>Hiperautomação<br>e agentes</span>
-                <span class="control-node node-custom"><i></i>Soluções<br>personalizadas</span>
-              </div>
-            </div>
-
-            <div class="hero-visual-slide" data-hero-slide="qa" aria-hidden="true">
-              <div class="domain-infographic qa-infographic">
-                <div class="domain-head"><span>02 · Quality Assurance</span><strong>Esteira inteligente</strong></div>
-                <div class="qa-system-map">
-                  <div class="qa-ring qa-ring-a"></div><div class="qa-ring qa-ring-b"></div>
-                  <div class="qa-links" aria-hidden="true"><i></i><i></i><i></i></div>
-                  <div class="domain-core-badge qa-core"><span class="pc-symbol"><img src="assets/prime-control-logo.png" alt="" aria-hidden="true"></span><strong>Prime Quality <b>AI</b></strong></div>
-                  <span class="qa-node qa-node-a"><small>01</small>Requisito</span>
-                  <span class="qa-node qa-node-b"><small>02</small>Teste</span>
-                  <span class="qa-node qa-node-c"><small>03</small>Evidência</span>
-                </div>
-                <div class="domain-result"><span>Do requisito à evidência</span><b>Qualidade contínua</b></div>
-              </div>
-            </div>
-
-            <div class="hero-visual-slide" data-hero-slide="sap" aria-hidden="true">
-              <div class="domain-infographic sap-infographic">
-                <div class="domain-head"><span>03 · Serviços SAP</span><strong>Prime SAP AI</strong></div>
-                <div class="sap-system-map">
-                  <div class="system-ring system-ring-a"></div><div class="system-ring system-ring-b"></div>
-                  <div class="domain-core-badge"><span class="pc-symbol"><img src="assets/prime-control-logo.png" alt="" aria-hidden="true"></span><strong>Prime SAP <b>AI</b></strong></div>
-                  <span class="system-node system-node-a">Clean Core AI</span><span class="system-node system-node-b">SAP Code AI</span><span class="system-node system-node-c">ChatSync AI</span>
-                </div>
-                <div class="domain-result"><span>Contexto SAP conectado</span><b>Clean Core com velocidade</b></div>
-              </div>
-            </div>
-
-            <div class="hero-visual-slide" data-hero-slide="hyper" aria-hidden="true">
-              <div class="domain-infographic hyper-infographic">
-                <div class="domain-head"><span>04 · Hiperautomação</span><strong>Prime Orquestrador</strong></div>
-                <div class="orchestration-flow">
-                  <article><small>Entrada</small><strong>Sinais</strong><span>Sistemas e eventos</span></article><i aria-hidden="true"></i>
-                  <div class="orchestrator-core"><span class="pc-symbol"><img src="assets/prime-control-logo.png" alt="" aria-hidden="true"></span><strong>Agentes</strong><small>Orquestrar</small></div><i aria-hidden="true"></i>
-                  <article><small>Saída</small><strong>Ações</strong><span>Fluxos executados</span></article>
-                </div>
-                <div class="domain-result"><span>Governança e observabilidade</span><b>Automação em escala</b></div>
-              </div>
-            </div>
-
-          </div>
-          <div class="hero-visual-nav">
-            <span data-hero-counter>01 / 04</span>
-            <div aria-label="Selecionar infográfico">
-              <button type="button" class="is-active" data-hero-dot="0" aria-label="Ver visão integrada Prime Control AI" aria-current="true"></button>
-              <button type="button" data-hero-dot="1" aria-label="Ver Quality Assurance" aria-current="false"></button>
-              <button type="button" data-hero-dot="2" aria-label="Ver Serviços SAP" aria-current="false"></button>
-              <button type="button" data-hero-dot="3" aria-label="Ver Hiperautomação" aria-current="false"></button>
-            </div>
-          </div>
-        </aside>
       </div>
-      <a class="scroll-cue" href="#confiam" aria-label="Continuar para empresas que confiam"><span>Scroll</span><i></i></a>
     </section>
 
     <section class="compatibility" aria-labelledby="compatibility-title">
