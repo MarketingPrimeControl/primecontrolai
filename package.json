@@ -1,0 +1,13 @@
+{
+  "name": "prime-control-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site e landing pages do Prime Control AI.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
