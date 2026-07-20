@@ -915,3 +915,69 @@ footer{padding:80px 0 25px;background:#00102b}.footer-main{display:grid;grid-tem
   .hero-particles,
   .hero-light-beam{animation:none!important}
 }
+
+/* Cabeçalho Prime Control AI: assinatura oficial com hierarquia e respiro */
+@media(min-width:1001px){
+  .topbar{
+    display:grid;
+    grid-template-columns:minmax(205px,236px) minmax(300px,1fr) minmax(196px,auto);
+    column-gap:clamp(20px,2.2vw,38px);
+    padding-inline:clamp(34px,4vw,76px);
+  }
+  .brand-ai{
+    width:min(236px,19vw);
+    min-width:205px;
+    margin:0;
+    justify-self:start;
+    transform:translateX(-4px);
+  }
+  .brand-ai img{
+    width:100%;
+    height:auto;
+  }
+  .topbar nav:not(.mobile-nav){
+    justify-self:center;
+    margin:0;
+    gap:clamp(18px,2vw,30px);
+  }
+  .topbar .top-cta{
+    justify-self:end;
+    min-width:196px;
+    white-space:nowrap;
+  }
+}
+
+@media(min-width:1001px) and (max-width:1180px){
+  .topbar{
+    grid-template-columns:205px minmax(270px,1fr) 184px;
+    column-gap:18px;
+    padding-inline:28px;
+  }
+  .brand-ai{
+    width:205px;
+    min-width:205px;
+  }
+  .topbar .top-cta{
+    min-width:184px;
+    padding-inline:17px;
+  }
+}
+
+@media(max-width:1000px){
+  .topbar{
+    display:flex;
+  }
+  .brand-ai{
+    width:clamp(198px,34vw,226px);
+    flex:0 1 auto;
+    min-width:0;
+    margin-right:auto;
+    transform:translateX(-4px);
+  }
+}
+
+@media(max-width:420px){
+  .brand-ai{
+    width:190px;
+  }
+}
