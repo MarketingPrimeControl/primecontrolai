@@ -151,6 +151,7 @@
   });
 
   const form = document.getElementById('lead-form');
+  if (form) {
   const submitButton = form.querySelector('.submit-button');
   const submitLabel = form.querySelector('.submit-label');
   const success = document.querySelector('.form-success');
@@ -244,4 +245,5 @@
       microcopy.style.color = '#aa2a2a';
     }
   });
+  }
 })();

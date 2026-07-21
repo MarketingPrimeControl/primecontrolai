@@ -300,26 +300,11 @@
 
         <div class="form-card reveal">
           <div class="form-heading"><span>Diagnóstico inicial</span><small>Retorno do time em até 1 dia útil</small><h3>Converse com um especialista em IA aplicada.</h3></div>
-          <!-- Defina data-endpoint com a URL do RD Station/CRM para ativar o envio em produção. -->
-          <form id="lead-form" data-endpoint="" novalidate>
-            <div class="field-row">
-              <div class="field"><label for="name">Nome completo</label><input id="name" name="name" type="text" autocomplete="name" required><small class="field-error" aria-live="polite"></small></div>
-              <div class="field"><label for="company">Empresa</label><input id="company" name="company" type="text" autocomplete="organization" required><small class="field-error" aria-live="polite"></small></div>
-            </div>
-            <div class="field"><label for="email">E-mail corporativo</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><small class="field-error" aria-live="polite"></small></div>
-            <div class="field-row">
-              <div class="field"><label for="role">Cargo</label><input id="role" name="role" type="text" autocomplete="organization-title" required><small class="field-error" aria-live="polite"></small></div>
-              <div class="field"><label for="phone">Telefone / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999"><small class="field-error" aria-live="polite"></small></div>
-            </div>
-            <div class="field"><label for="challenge">Principal desafio</label><select id="challenge" name="challenge" required><option value="">Selecione uma opção</option><option>Aplicar IA em Quality Assurance</option><option>Evoluir SAP com IA e Clean Core</option><option>Orquestrar agentes e processos</option><option>Governar iniciativas de IA</option><option>Desenvolver uma solução personalizada</option><option>Ainda estamos mapeando oportunidades</option></select><small class="field-error" aria-live="polite"></small></div>
-            <div class="field"><label for="context">Conte um pouco do contexto <span>(opcional)</span></label><textarea id="context" name="context" rows="3" placeholder="Ex.: temos pilotos isolados e precisamos definir prioridades..."></textarea></div>
-            <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="page_url">
-            <label class="consent"><input type="checkbox" name="consent" required><span>Concordo em receber contato da Prime Control sobre esta solicitação e li a <a href="https://www.primecontrol.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
-            <small class="consent-error field-error" aria-live="polite"></small>
-            <button class="button submit-button" type="submit"><span class="submit-label">Quero mapear oportunidades</span><i aria-hidden="true">↗</i></button>
-            <p class="form-microcopy">Sem spam. Sem abordagem genérica. Uma conversa orientada ao seu contexto.</p>
-          </form>
-          <div class="form-success" role="status" aria-live="polite" tabindex="-1" hidden><span>✓</span><h3>Recebemos seu interesse.</h3><p>O time da Prime Control vai analisar o contexto informado e entrar em contato para combinar a conversa.</p><a href="https://www.primecontrol.com.br/">Conhecer o site institucional ↗</a></div>
+          <div id="hubspot-form-prime-ai" class="hubspot-form-shell" aria-live="polite">
+            <div class="hubspot-form-loading" role="status"><span aria-hidden="true"></span>Carregando formulário seguro...</div>
+            <div class="hubspot-form-fallback" role="alert"><p>Não foi possível carregar o formulário agora.</p><button type="button" onclick="window.location.reload()">Tentar novamente</button></div>
+          </div>
+          <p class="form-microcopy">Seus dados serão tratados conforme a Política de Privacidade da Prime Control.</p>
         </div>
       </div>
     </section>
@@ -359,6 +344,36 @@
   <a class="floating-back-to-top" href="#inicio" aria-label="Voltar ao topo" aria-hidden="true" tabindex="-1" data-tooltip="Voltar ao topo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 14 5-5 5 5M12 9v9"/></svg>
   </a>
+  <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+  <script>
+    (function () {
+      var formMount = document.getElementById("hubspot-form-prime-ai");
+      var formTimeout = window.setTimeout(function () {
+        if (!formMount?.classList.contains("is-ready")) {
+          formMount?.classList.add("is-error");
+        }
+      }, 12000);
+      if (!window.hbspt || !window.hbspt.forms) {
+        window.clearTimeout(formTimeout);
+        formMount?.classList.add("is-error");
+        return;
+      }
+      hbspt.forms.create({
+        portalId: "7317937",
+        formId: "f75acfaa-7990-4266-a12b-0fa12c30ec1e",
+        region: "na1",
+        target: "#hubspot-form-prime-ai",
+        onFormReady: function () {
+          window.clearTimeout(formTimeout);
+          formMount?.classList.add("is-ready");
+        },
+        onFormSubmitted: function () {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "prime_ai_lead", form_provider: "hubspot" });
+        }
+      });
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
