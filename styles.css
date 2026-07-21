@@ -314,6 +314,57 @@ footer{padding:80px 0 25px;background:#00102b}.footer-main{display:grid;grid-tem
 .conversion-title span,.conversion-title em{display:block;white-space:nowrap}
 @media(max-width:700px){.conversion-title{font-size:clamp(39px,11vw,54px)}.conversion-title span,.conversion-title em{white-space:normal}.conversion-title span:nth-child(2){white-space:nowrap}}
 
+/* Nossas IAs: narrativa sticky com fluxos em movimento */
+.architecture .solution-tabs,.architecture .solution-panel{display:none!important}
+.ai-story{position:relative;z-index:2;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(520px,1.28fr);gap:clamp(48px,7vw,112px);align-items:start;margin-top:76px}
+.ai-story-steps{min-width:0}
+.ai-story-step{position:relative;min-height:clamp(460px,56svh,580px);padding:clamp(46px,9vh,92px) 0 46px 34px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(128,151,226,.17);opacity:.32;transform:translateY(18px);transition:opacity .55s var(--ease),transform .55s var(--ease),border-color .55s var(--ease)}
+.ai-story-step:before{content:"";position:absolute;left:-1px;top:50%;width:2px;height:0;background:linear-gradient(180deg,#6f88f5,var(--electric));box-shadow:0 0 24px rgba(89,118,255,.45);transform:translateY(-50%);transition:height .55s var(--ease)}
+.ai-story-step.is-active{opacity:1;transform:none;border-color:rgba(128,151,226,.34)}
+.ai-story-step.is-active:before{height:34%}
+.ai-story-index{margin-bottom:24px;color:#8da3e9;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.ai-story-step h3{max-width:430px;margin:0;font:500 clamp(38px,3.7vw,58px)/.96 var(--display);letter-spacing:-.035em}
+.ai-story-step p{max-width:470px;margin:24px 0 0;color:#aebbd8;font-size:15px;line-height:1.65}
+.ai-story-products{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:28px 0 34px;padding:0}
+.ai-story-products li{padding:8px 11px;border:1px solid rgba(139,162,238,.19);background:rgba(17,39,92,.28);color:#c4cee5;font-size:8px;font-weight:700;letter-spacing:.075em;text-transform:uppercase}
+.ai-story-step .text-link{align-self:flex-start;color:#fff}
+.ai-story-mobile-visual{display:none}
+.ai-story-visual{position:sticky;top:clamp(96px,11vh,126px);min-width:0}
+.ai-story-frame{position:relative;height:570px;overflow:hidden;border:1px solid rgba(112,140,243,.24);background:linear-gradient(145deg,rgba(10,29,72,.72),rgba(3,14,42,.9));box-shadow:0 32px 90px rgba(0,5,22,.32)}
+.ai-story-frame:before{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;box-shadow:inset 0 0 70px rgba(71,103,222,.06)}
+.ai-story-slide{position:absolute;inset:0;opacity:0;visibility:hidden;filter:blur(8px);transform:translateY(24px) scale(.985);transition:opacity .68s var(--ease),transform .68s var(--ease),filter .68s var(--ease),visibility .68s}
+.ai-story-slide.is-active{opacity:1;visibility:visible;filter:none;transform:none}
+.ai-story-slide .domain-infographic{height:100%;padding-top:42px}
+.ai-story-status{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:20px;margin-top:18px;color:#8296cc;font-size:8px;font-weight:700;letter-spacing:.14em}
+.ai-story-status>i{position:relative;height:1px;overflow:hidden;background:rgba(134,155,220,.2)}
+.ai-story-status>i b{position:absolute;inset:0;transform:scaleX(.3333);transform-origin:left;background:linear-gradient(90deg,#8da4ff,var(--electric));transition:transform .55s var(--ease)}
+
+@media(max-width:1100px){
+  .ai-story{grid-template-columns:minmax(280px,.72fr) minmax(450px,1.1fr);gap:48px}
+  .ai-story-frame{height:530px}
+  .ai-story-slide .domain-infographic{padding-left:24px;padding-right:24px}
+}
+@media(max-width:900px){
+  .ai-story{display:block;margin-top:48px}
+  .ai-story-visual{display:none}
+  .ai-story-step{min-height:0;padding:56px 0;border-left:0;border-top:1px solid rgba(128,151,226,.18);opacity:1;transform:none}
+  .ai-story-step:before{left:0;top:-1px;width:72px;height:2px!important;transform:none}
+  .ai-story-step h3,.ai-story-step p{max-width:620px}
+  .ai-story-mobile-visual{display:block;margin-top:38px;border:1px solid rgba(112,140,243,.22);background:linear-gradient(145deg,rgba(10,29,72,.72),rgba(3,14,42,.9));overflow:hidden}
+  .ai-story-mobile-visual .domain-infographic{width:100%}
+}
+@media(max-width:700px){
+  .ai-story-step{padding:46px 0}
+  .ai-story-step h3{font-size:42px}
+  .ai-story-step p{font-size:14px}
+  .ai-story-products{margin:24px 0 30px}
+  .ai-story-products li{font-size:7px}
+  .ai-story-mobile-visual{margin-top:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-story-step,.ai-story-step:before,.ai-story-slide,.ai-story-status>i b{transition:none!important}
+}
+
 /* Ritmo horizontal premium e hierarquia mais leve na hero */
 :root{--shell:min(1280px,calc(100vw - 8vw));--page-gutter:max(4vw,calc((100vw - 1280px)/2))}
 .topbar{padding-inline:var(--page-gutter)}

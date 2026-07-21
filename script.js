@@ -109,30 +109,42 @@
     startHeroRotation();
   }
 
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
-  const panels = [...document.querySelectorAll('[role="tabpanel"]')];
-  const activateTab = tab => {
-    tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
-    panels.forEach(panel => {
-      const active = panel.dataset.panel === tab.dataset.tab;
-      panel.hidden = !active;
-      panel.classList.toggle('active', active);
-    });
-  };
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activateTab(tab));
-    tab.addEventListener('keydown', event => {
-      if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      let nextIndex = index;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = tabs.length - 1;
-      tabs[nextIndex].focus();
-      activateTab(tabs[nextIndex]);
-    });
-  });
+  const aiStory = document.querySelector('[data-ai-story]');
+  if (aiStory) {
+    const storySteps = [...aiStory.querySelectorAll('[data-ai-story-step]')];
+    const storyVisuals = [...aiStory.querySelectorAll('[data-ai-story-visual]')];
+    const storyCounter = aiStory.querySelector('[data-ai-story-counter]');
+    const storyProgress = aiStory.querySelector('[data-ai-story-progress]');
+
+    const activateStoryStep = step => {
+      const key = step.dataset.aiStoryStep;
+      const index = storySteps.indexOf(step);
+      if (index < 0) return;
+
+      storySteps.forEach(item => item.classList.toggle('is-active', item === step));
+      storyVisuals.forEach(visual => {
+        const active = visual.dataset.aiStoryVisual === key;
+        visual.classList.toggle('is-active', active);
+        visual.setAttribute('aria-hidden', String(!active));
+      });
+
+      if (storyCounter) storyCounter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(storySteps.length).padStart(2, '0')}`;
+      if (storyProgress) storyProgress.style.transform = `scaleX(${(index + 1) / storySteps.length})`;
+    };
+
+    if ('IntersectionObserver' in window && window.matchMedia('(min-width: 901px)').matches) {
+      const storyObserver = new IntersectionObserver(entries => {
+        const visibleStep = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleStep) activateStoryStep(visibleStep.target);
+      }, { rootMargin: '-27% 0px -43% 0px', threshold: [0.08, 0.25, 0.5, 0.75] });
+
+      storySteps.forEach(step => storyObserver.observe(step));
+    } else if (storySteps[0]) {
+      activateStoryStep(storySteps[0]);
+    }
+  }
 
   document.querySelectorAll('.faq-list details').forEach(detail => {
     detail.addEventListener('toggle', () => {
