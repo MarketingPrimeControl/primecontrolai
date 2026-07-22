@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="../campaign.css">
 </head>
 <body data-variant="form-contexto">
-  <main>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <main id="conteudo">
     <header class="campaign-hero" id="inicio">
       <div class="shell campaign-topbar">
         <a class="campaign-logo" href="../index.html" aria-label="Prime Control AI"><img src="../assets/logo-primecontrolai.svg" alt="Prime Control AI"></a>
@@ -70,16 +71,7 @@
         <section class="form-panel form-panel--paper" aria-labelledby="context-form-title" data-reveal>
           <h2 id="context-form-title">Vamos começar?</h2>
           <p>Preencha seus dados e nosso time entrará em contato.</p>
-          <form class="lead-form" data-lead-form data-variant="form-contexto" method="post" action="#">
-            <div class="form-field"><label for="context-name">Nome</label><input id="context-name" name="firstname" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
-            <div class="form-field"><label for="context-email">E-mail profissional</label><input id="context-email" name="email" autocomplete="email" type="email" required placeholder="nome@empresa.com.br"></div>
-            <div class="form-field"><label for="context-company">Empresa</label><input id="context-company" name="company" autocomplete="organization" required placeholder="Nome da empresa"></div>
-            <div class="form-field"><label for="context-interest">Área de interesse</label><select id="context-interest" name="area_de_interesse" required><option value="" selected disabled>Selecione uma frente</option><option>Qualidade & Experiência</option><option>Serviços SAP</option><option>Hiperautomação</option><option>Soluções personalizadas</option></select></div>
-            <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="gclid"><input type="hidden" name="fbclid">
-            <label class="form-consent"><input type="checkbox" required> <span>Concordo em receber o contato da Prime Control sobre esta solicitação.</span></label>
-            <button class="button button--primary form-submit" type="submit" data-analytics-cta="context_form_submit">Quero mapear oportunidades <span class="button-arrow">↗</span></button>
-            <p class="form-note">Ao integrar o formulário HubSpot, mantenha estes campos e os parâmetros de campanha.</p>
-          </form>
+          <div id="hubspot-form-campaign" class="campaign-hubspot" aria-live="polite"><p class="hubspot-loading" role="status">Carregando formulário seguro...</p></div>
         </section>
       </div>
     </section>
@@ -87,8 +79,60 @@
     <section class="section section--white" aria-labelledby="faq-title">
       <div class="shell faq-layout"><div data-reveal><p class="eyebrow">O que você precisa saber</p><h2 id="faq-title">Dúvidas <strong>comuns.</strong></h2></div><div class="faq-list" data-reveal><details><summary>Qual é o primeiro passo?</summary><p>Partimos do contexto operacional para identificar onde uma aplicação de IA pode gerar mais valor e aderência.</p></details><details><summary>A Prime Control trabalha com soluções personalizadas?</summary><p>Sim. A composição de ativos, integrações e especialistas é definida para a necessidade da empresa.</p></details><details><summary>Como mantemos o controle?</summary><p>Arquitetura, permissões, monitoramento, testes e revisão humana fazem parte do desenho da solução.</p></details></div></div>
     </section>
+
+    <section class="section company-proof" aria-labelledby="company-proof-title">
+      <div class="shell company-proof-grid">
+        <div class="company-proof-copy" data-reveal>
+          <p class="eyebrow">Sobre a Prime Control</p>
+          <h2 id="company-proof-title">Engenharia e especialistas por trás da <strong>Prime Control AI.</strong></h2>
+          <p>Desde 2008, a Prime Control atua como uma boutique de eficiência digital, conectando tecnologia, qualidade e operação em ambientes críticos.</p>
+          <a class="button button--line company-proof-cta" href="https://www.primecontrol.com.br/?utm_source=primecontrolai&amp;utm_medium=referral&amp;utm_campaign=lp_prime_control_ai&amp;utm_content=sobre_prime_control" target="_blank" rel="noopener">Conhecer a Prime Control <span class="button-arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="recognition-grid" aria-label="Reconhecimentos da Prime Control" data-reveal>
+          <article class="recognition-card">
+            <div class="recognition-media"><img src="../assets/recognition-isg-2025.webp" alt="ISG Provider Lens 2025, Leader Brazil em AI-driven ADM Services e Continuous Testing Specialists"></div>
+            <div><strong>5 anos</strong><span>entre especialistas líderes</span></div>
+          </article>
+          <article class="recognition-card">
+            <div class="recognition-media"><img src="../assets/recognition-gptw-2026-2027.png" alt="Great Place to Work, certificada no Brasil, ciclo 2026 a 2027"></div>
+            <div><strong>6 anos</strong><span>de certificação GPTW</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="campaign-footer"><div class="shell"><p>© 2026 Prime Control. Inteligência aplicada a operações reais.</p><a href="#inicio">Voltar ao início ↑</a></div></footer>
+  <script charset="utf-8" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+  <script>
+    (function () {
+      var mount = document.getElementById('hubspot-form-campaign');
+      if (!window.hbspt || !window.hbspt.forms) {
+        mount.innerHTML = '<p>Não foi possível carregar o formulário. Atualize a página para tentar novamente.</p>';
+        return;
+      }
+      window.hbspt.forms.create({
+        portalId: '7317937',
+        formId: '9135013e-866d-453e-9e2f-65ad1f353e57',
+        region: 'na1',
+        target: '#hubspot-form-campaign',
+        onFormReady: function () {
+          mount.classList.add('is-ready');
+          var params = new URLSearchParams(window.location.search);
+          ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (name) {
+            var field = mount.querySelector('[name="' + name + '"]');
+            if (field && params.get(name)) {
+              field.value = params.get(name);
+              field.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          });
+        },
+        onFormSubmitted: function () {
+          var query = window.location.search || '';
+          window.location.href = '../obrigado/index.html' + query;
+        }
+      });
+    })();
+  </script>
   <script src="../campaign.js"></script>
 </body>
 </html>

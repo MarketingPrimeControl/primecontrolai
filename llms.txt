@@ -1,0 +1,35 @@
+# Prime Control AI
+
+> Aceleradores, agentes e soluções personalizadas de inteligência artificial para operações digitais críticas.
+
+- Canonical: https://primecontrol.ai/
+- Idioma principal: português do Brasil
+- Empresa responsável: Prime Control
+- Site institucional: https://www.primecontrol.com.br/
+
+## O que é
+
+Prime Control AI é a arquitetura de inteligência artificial da Prime Control. Ela combina ativos proprietários e engenharia sob medida para integrar IA aos sistemas, dados, regras e fluxos já utilizados pela empresa.
+
+## Frentes de atuação
+
+- Qualidade e Experiência: Prime Quality AI transforma requisitos em cenários, execução e evidências rastreáveis.
+- Serviços SAP: Prime SAP AI apoia análise de customizações, desenvolvimento, documentação e evolução com Clean Core.
+- Hiperautomação: Prime Orquestrador coordena agentes, regras e sistemas com rastreabilidade de ponta a ponta.
+- Soluções personalizadas: agentes, integrações e experiências desenhados para o contexto de cada operação.
+
+## Arquitetura, segurança e governança
+
+- Implantação em cloud ou on-premise, conforme o contexto aprovado pelo cliente.
+- Controle de acesso por contexto, trilha de auditoria e supervisão humana.
+- Integrações personalizadas com sistemas, dados e canais existentes.
+- Modelos Claude, da Anthropic, podem ser selecionados conforme caso de uso, política de dados, segurança, latência e custo operacional.
+
+## Respostas e contato
+
+- IA em Qualidade e Experiência: https://primecontrol.ai/ia-qualidade/
+- IA em Serviços SAP: https://primecontrol.ai/ia-servicos-sap/
+- IA em Hiperautomação: https://primecontrol.ai/ia-hiperautomacao/
+- Perguntas frequentes: https://primecontrol.ai/#faq
+- Soluções em operação: https://primecontrol.ai/#arquitetura
+- Conversar com especialistas em IA: https://primecontrol.ai/#diagnostico
