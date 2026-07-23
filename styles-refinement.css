@@ -811,3 +811,38 @@
   .conversion-title,
   .faq .display{font-size:33px!important}
 }
+
+/* Mobile spacing system: consistent gutters and centered conversion actions. */
+@media(max-width:700px){
+  :root{--shell:calc(100% - 40px)}
+  .topbar{padding-inline:20px}
+  .hero-layout-centered .hero-copy{
+    width:100%;
+    padding-inline:0;
+  }
+  .hero-layout-centered .hero-actions{
+    width:100%;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+  }
+  .hero-layout-centered .hero-actions .button{
+    width:min(100%,320px);
+    justify-content:center;
+    padding-inline:22px;
+  }
+  .hero-layout-centered .hero-actions .text-link{
+    align-self:center;
+    justify-content:center;
+    margin-inline:auto;
+    padding-inline:4px;
+  }
+}
+
+@media(max-width:360px){
+  :root{--shell:calc(100% - 36px)}
+  .topbar{padding-inline:18px}
+  .hero-layout-centered .hero-copy h1 .hero-title-line:first-child{font-size:23.5px}
+  .hero-layout-centered .hero-copy h1 .hero-focus{font-size:22px}
+  .hero-layout-centered .hero-copy h1 .hero-title-operation{font-size:20.5px}
+}
