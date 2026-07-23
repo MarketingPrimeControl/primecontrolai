@@ -1,6 +1,6 @@
 (() => {
-  const menu = document.querySelector('[data-mobile-menu]');
-  const toggle = document.querySelector('[data-menu-toggle]');
+  const menu = document.querySelector('[data-mobile-menu], .mobile-nav');
+  const toggle = document.querySelector('[data-menu-toggle], .menu-toggle');
   const setMenuState = open => {
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
@@ -14,23 +14,29 @@
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => setMenuState(false));
   });
-  const megaButton = document.querySelector('.mega-trigger');
-  const megaPanel = document.querySelector('.mega-panel');
+  const megaButton = document.querySelector('.mega-trigger, .solutions-toggle');
+  const megaPanel = document.querySelector('.mega-panel, .solutions-mega');
   megaButton?.addEventListener('click', () => {
     const open = megaButton.getAttribute('aria-expanded') !== 'true';
     megaButton.setAttribute('aria-expanded', String(open));
     megaPanel?.classList.toggle('open', open);
+    megaPanel?.classList.toggle('is-open', open);
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       setMenuState(false);
       megaButton?.setAttribute('aria-expanded', 'false');
-      megaPanel?.classList.remove('open');
+      megaPanel?.classList.remove('open', 'is-open');
     }
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) setMenuState(false);
+    if (window.innerWidth > 1000) setMenuState(false);
   });
+
+  const header = document.querySelector('[data-header]');
+  const syncHeader = () => header?.classList.toggle('scrolled', window.scrollY > 18);
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, { passive: true });
 
   const formTarget = document.querySelector('[data-hubspot-form]');
   if (formTarget) {

@@ -12,6 +12,7 @@ const files = [
   "campaign.css",
   "campaign.js",
   "solution.css",
+  "shared-chrome.css",
   "solution.js",
   "robots.txt",
   "sitemap.xml",
