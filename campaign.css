@@ -252,3 +252,26 @@ img,svg,video,iframe{max-width:100%}
 }
 
 @media(hover:none){.button:hover,.value-card:hover{transform:none}}
+
+/* Paid-media mobile hierarchy: compact headlines, predictable line breaks. */
+@media(max-width:700px){
+  .hero-copy h1{
+    max-width:100%;
+    font-size:clamp(34px,9.2vw,46px);
+    line-height:1.02;
+    letter-spacing:-.04em;
+    text-wrap:balance;
+  }
+  .section-header h2,
+  .form-section-copy h2{
+    font-size:clamp(34px,9.2vw,44px);
+    line-height:1.03;
+    text-wrap:balance;
+  }
+}
+
+@media(max-width:390px){
+  .hero-copy h1{font-size:clamp(31px,8.8vw,36px)}
+  .section-header h2,
+  .form-section-copy h2{font-size:32px}
+}
