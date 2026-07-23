@@ -650,3 +650,72 @@
   .ai-demo-products{gap:6px 13px;margin-top:11px}
   .ai-demo-products li{font-size:7.5px}
 }
+
+/* Aceleradores: navy profundo e soluções com hierarquia independente. */
+.architecture{
+  background:
+    radial-gradient(circle at 78% 16%,rgba(76,104,218,.16),transparent 35%),
+    radial-gradient(circle at 10% 72%,rgba(30,70,158,.14),transparent 40%),
+    linear-gradient(138deg,#061a42 0%,#041534 52%,#020d27 100%);
+}
+.ai-demo-portfolio{
+  position:relative;
+  z-index:2;
+  margin-top:12px;
+}
+.ai-demo-portfolio>span{
+  display:block;
+  color:#f58a45;
+  font-size:9.5px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.ai-demo-products{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  margin-top:8px;
+}
+.ai-demo-products li{
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:1px solid rgba(142,164,235,.18);
+  background:linear-gradient(145deg,rgba(21,49,107,.66),rgba(7,23,59,.78));
+  color:#dce5f7;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.25;
+  white-space:normal;
+}
+.ai-demo-products li:before{
+  position:static;
+  flex:0 0 auto;
+  width:5px;
+  height:5px;
+}
+.demo-qa .qa-demo-flow{margin-top:16px}
+.demo-sap .sap-demo-grid{margin-top:16px}
+
+@media(max-width:900px){
+  .architecture{
+    background:
+      radial-gradient(circle at 82% 12%,rgba(76,104,218,.14),transparent 36%),
+      linear-gradient(150deg,#061a42 0%,#03132f 100%);
+  }
+  .ai-demo-portfolio{margin-top:11px}
+  .ai-demo-products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+    margin-top:8px;
+  }
+  .ai-demo-products li{
+    min-height:38px;
+    padding:8px 9px;
+    font-size:10.5px;
+  }
+}
