@@ -2088,3 +2088,162 @@ footer{padding:80px 0 25px;background:#00102b}.footer-main{display:grid;grid-tem
   .ai-story-mobile-visual .ai-demo-heading>strong{font-size:19px}
   .ai-story-mobile-visual .ai-demo-log{left:16px;right:16px;bottom:14px}
 }
+
+/* Responsive hardening shared by the institutional Prime Control AI page. */
+html{-webkit-text-size-adjust:100%}
+main,.hero-layout,.hero-copy,.hero-control,.two-col,.architecture-head,.ai-story-body,.ai-story-step,.ai-story-visual,.conversion-grid,.faq-grid,.footer-main{min-width:0}
+.hero-copy,.architecture-head>*,.ai-story-step,.conversion-grid>*,.faq-grid>*{overflow-wrap:anywhere}
+
+@media(max-width:1000px){
+  .mobile-nav{
+    inset:74px 0 0;
+    max-height:calc(100dvh - 74px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding-bottom:max(40px,env(safe-area-inset-bottom));
+  }
+  body.menu-open{overflow:hidden}
+  .hero-layout{gap:24px}
+  .hero-control{max-width:660px;justify-self:center}
+  .ai-story-tabs{scroll-snap-type:x proximity;overscroll-behavior-inline:contain}
+  .ai-story-tabs button{scroll-snap-align:start}
+}
+
+@media(max-width:700px){
+  .topbar{height:72px;padding-inline:18px}
+  .brand-ai{width:min(208px,calc(100vw - 92px));flex-basis:auto}
+  .mobile-nav{inset:72px 0 0;max-height:calc(100dvh - 72px);padding:24px 18px max(34px,env(safe-area-inset-bottom))}
+  .mobile-nav a{min-height:46px;font-size:24px!important}
+  .hero{padding:112px 0 72px}
+  .hero-actions{width:100%;gap:16px}
+  .hero-actions .button{width:100%;min-height:52px;padding-inline:18px;text-align:center}
+  .hero-actions .text-link{align-self:flex-start;min-height:44px}
+  .hero-control{width:100%;min-height:440px;margin-top:12px}
+  .control-visual{height:440px;margin-inline:0;transform:none}
+  .trust-logos{overflow:hidden}
+  .client-logo-marquee{margin-inline:calc((100vw - var(--shell))/ -2);padding-inline:18px}
+  .client-proof-strip .client-logo-group span{width:156px;height:78px;flex-basis:156px}
+  .client-proof-strip .client-logo-group img{height:47px}
+  .architecture{padding-top:72px;padding-bottom:70px}
+  .architecture-head .display{font-size:clamp(38px,10.7vw,48px);line-height:1}
+  .architecture-head .section-intro{font-size:15px}
+  .ai-story-tabs{margin-inline:-18px;padding-inline:18px;scroll-padding-inline:18px}
+  .ai-story-tabs button{min-width:164px;min-height:56px}
+  .ai-story-step{padding:42px 0 50px}
+  .ai-story-step h3{max-width:100%;font-size:clamp(34px,9.6vw,42px)}
+  .ai-story-mobile-visual{width:100%;margin-top:24px;overflow:hidden;border-radius:16px}
+  .ai-story-mobile-visual .ai-demo-canvas{height:auto;min-height:350px;padding:22px 15px 18px}
+  .qa-demo-flow{gap:7px}
+  .qa-demo-flow article{min-width:0;padding-inline:8px}
+  .sap-demo-grid{gap:10px}
+  .conversion-grid{gap:42px}
+  .form-card{width:100%;padding:25px 18px}
+  .form-card input,.form-card select,.form-card textarea{font-size:16px}
+  .faq-list summary{min-height:58px;align-items:center;font-size:18px;line-height:1.35}
+  .footer-main{gap:32px}
+  .landing-socials a{min-width:44px;min-height:44px}
+}
+
+@media(max-width:420px){
+  :root{--shell:calc(100% - 28px)}
+  .topbar{padding-inline:14px}
+  .brand-ai{width:min(190px,calc(100vw - 86px))}
+  .hero-copy h1{font-size:clamp(39px,11.5vw,48px);line-height:.97}
+  .hero-lead{font-size:15px;line-height:1.62}
+  .hero-control{min-height:410px}
+  .control-visual{height:410px}
+  .client-proof-strip .client-logo-group span{width:142px;height:72px;flex-basis:142px}
+  .client-proof-strip .client-logo-group img{height:43px}
+  .ai-story-tabs button{min-width:150px;font-size:10px}
+  .ai-story-mobile-visual .ai-demo-canvas{min-height:330px}
+}
+
+@media(hover:none){
+  .client-logo-marquee:hover .client-logo-track{animation-play-state:running}
+  .value-card:hover,.ai-insight-card:hover,.footer-socials a:hover{transform:none}
+}
+
+/* Narrative and conversion refinements — July 2026 */
+.topbar .top-cta{
+  min-height:auto;
+  padding:10px 0;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.42);
+  border-radius:0;
+  background:transparent;
+  color:#fff;
+  box-shadow:none;
+}
+.topbar .top-cta:hover,.topbar .top-cta:focus-visible{
+  color:#fff;
+  border-bottom-color:var(--orange);
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+}
+.solutions-mega a em{
+  display:block;
+  margin-top:auto;
+  padding-top:14px;
+  color:var(--blue);
+  font-size:9px;
+  font-style:normal;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.new-phase{position:relative;padding:clamp(82px,8vw,124px) 0;overflow:hidden}
+.new-phase:after{
+  content:"";
+  position:absolute;
+  width:580px;
+  height:580px;
+  right:-250px;
+  top:-290px;
+  border:1px solid rgba(48,81,202,.08);
+  border-radius:50%;
+  box-shadow:0 0 0 55px rgba(48,81,202,.025),0 0 0 115px rgba(48,81,202,.018);
+  pointer-events:none;
+}
+.new-phase-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(420px,1.14fr);gap:clamp(50px,8vw,132px);align-items:center}
+.new-phase-copy{position:relative;z-index:2}
+.new-phase-copy h2{max-width:720px;margin:0;font:300 clamp(44px,4.55vw,69px)/.98 var(--display);letter-spacing:-.045em}
+.new-phase-copy h2 em{display:block;color:var(--blue);font-style:normal;font-weight:600}
+.new-phase-copy>p:not(.section-tag){max-width:640px;margin:26px 0 30px;color:var(--muted);font-size:17px;line-height:1.65}
+.new-phase-orbit{position:relative;min-height:470px;display:grid;place-items:center}
+.new-phase-ring{position:absolute;left:50%;top:50%;border:1px solid rgba(66,94,211,.22);border-radius:50%;transform:translate(-50%,-50%)}
+.new-phase-ring-one{width:360px;height:360px}
+.new-phase-ring-two{width:470px;height:470px;border-style:dashed;opacity:.6}
+.new-phase-core{position:relative;z-index:2;width:210px;height:210px;padding:50px 28px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 25%,#506de1,#071943 72%);box-shadow:0 26px 70px rgba(49,77,202,.28)}
+.new-phase-core img{width:100%;height:auto}
+.new-phase-node{position:absolute;z-index:3;max-width:180px;padding:13px 16px;border:1px solid rgba(48,81,202,.18);background:rgba(255,255,255,.86);color:var(--text);font-size:11px;font-weight:600;box-shadow:0 18px 40px rgba(17,39,91,.08);backdrop-filter:blur(12px)}
+.node-quality{left:1%;top:17%}.node-sap{right:0;top:24%}.node-hyper{right:7%;bottom:12%}
+.architecture-intro-actions{display:flex;align-items:flex-start;flex-direction:column;gap:24px}
+.comparison-action{display:flex;justify-content:flex-end;margin-top:32px}
+.comparison-row>span:first-child{font-weight:400!important}
+.comparison-header>span{font-weight:700!important}
+.comparison-row>span:nth-child(2){background:rgba(48,81,202,.045)!important;color:var(--blue)!important;font-weight:400!important}
+.comparison-header>span:nth-child(2){background:linear-gradient(110deg,#304fce,#526deb)!important;color:#fff!important}
+.comparison-row>span:nth-child(3){background:transparent!important;color:var(--muted)!important;font-weight:400!important}
+.comparison-header>span:nth-child(3){background:#eef2f8!important;color:var(--text)!important}
+
+@media(max-width:1000px){
+  .new-phase-grid{grid-template-columns:1fr}
+  .new-phase-copy{max-width:760px}
+  .new-phase-orbit{width:min(100%,650px);margin-inline:auto}
+}
+@media(max-width:700px){
+  .new-phase{padding:78px 0}
+  .new-phase-copy h2{font-size:clamp(42px,12vw,57px)}
+  .new-phase-copy h2 em{display:inline}
+  .new-phase-orbit{min-height:390px;transform:scale(.88);margin-block:-12px}
+  .new-phase-ring-one{width:300px;height:300px}
+  .new-phase-ring-two{width:380px;height:380px}
+  .new-phase-core{width:176px;height:176px;padding:43px 24px}
+  .new-phase-node{max-width:150px;padding:11px 12px;font-size:10px}
+  .node-quality{left:-2%;top:16%}.node-sap{right:-3%;top:22%}.node-hyper{right:0;bottom:12%}
+  .comparison-action{justify-content:stretch}
+  .comparison-action .button{width:100%}
+  .comparison-row>span:nth-child(2):before{content:"Prime Control AI"!important}
+  .comparison-row>span:nth-child(3):before{content:"IAs disponíveis no mercado"!important}
+}

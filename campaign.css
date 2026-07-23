@@ -201,3 +201,54 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Responsive hardening for campaign landing pages and embedded HubSpot forms. */
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img,svg,video,iframe{max-width:100%}
+.hero-grid>*,.form-section-grid>*,.faq-layout>*,.company-proof-grid>*{min-width:0}
+.hero-copy,.section-header,.form-section-copy,.company-proof-copy{overflow-wrap:anywhere}
+
+@media(max-width:880px){
+  .campaign-hero::after{width:480px;right:-260px;top:190px;opacity:.58}
+  .campaign-topbar{min-height:76px}
+  .hero-grid{gap:34px;padding-top:54px}
+  .hero-copy{max-width:650px}
+  .hero-orbit{justify-self:center;max-width:390px}
+  .form-section-grid{gap:38px}
+  .form-panel{max-width:620px}
+  .campaign-footer .shell{flex-wrap:wrap;padding-block:24px}
+}
+
+@media(max-width:540px){
+  .campaign-logo img{width:min(198px,58vw)}
+  .campaign-back{min-height:44px;display:inline-flex;align-items:center;text-align:right}
+  .hero-grid{padding:44px 0 54px}
+  .hero-copy h1{font-size:clamp(38px,11.3vw,50px);line-height:1;letter-spacing:-.05em}
+  .hero-copy p:not(.eyebrow){margin-top:21px;line-height:1.6}
+  .hero-points{gap:7px;margin:23px 0 28px}
+  .hero-points li{padding:8px 11px;font-size:11px}
+  .button{width:100%;min-height:52px;padding-inline:18px;text-align:center}
+  .hero-orbit{width:min(330px,88vw);margin:2px auto 0}
+  .orbit-tag{max-width:108px;padding:8px 9px;font-size:9px}
+  .orbit-tag--qa{right:0}.orbit-tag--sap{left:0}.orbit-tag--custom{left:0}.orbit-tag--hyper{right:0}
+  .form-panel{padding:23px 17px}
+  .campaign-hubspot input[type=text],.campaign-hubspot input[type=email],.campaign-hubspot input[type=tel],.campaign-hubspot select,.campaign-hubspot textarea{font-size:16px!important}
+  .section{padding:68px 0}
+  .section-header h2,.form-section-copy h2{font-size:clamp(37px,10.4vw,45px);line-height:1.02}
+  .section-header{margin-bottom:32px}
+  .value-card,.process-card{min-height:0;padding:22px}
+  .company-proof-grid{gap:34px}
+  .recognition-grid{gap:10px}
+  .campaign-footer .shell{display:flex;min-height:0;align-items:flex-start;flex-direction:column;gap:10px}
+}
+
+@media(max-width:380px){
+  :root{--shell:min(100% - 24px,500px)}
+  .campaign-logo img{width:170px}
+  .campaign-back{font-size:9px}
+  .hero-copy h1{font-size:37px}
+  .hero-orbit{width:300px}
+}
+
+@media(hover:none){.button:hover,.value-card:hover{transform:none}}

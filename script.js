@@ -23,12 +23,27 @@
     menuButton.setAttribute('aria-expanded', String(opening));
     menuButton.setAttribute('aria-label', opening ? 'Fechar menu' : 'Abrir menu');
     mobileNav.classList.toggle('open', opening);
+    document.body.classList.toggle('menu-open', opening);
   });
   mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     mobileNav.classList.remove('open');
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('menu-open');
   }));
+
+  const closeMobileMenu = () => {
+    mobileNav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('menu-open');
+  };
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMobileMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1000) closeMobileMenu();
+  });
 
   const solutionsNav = document.querySelector('[data-solutions-nav]');
   if (solutionsNav) {
