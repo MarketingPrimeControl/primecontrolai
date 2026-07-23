@@ -846,3 +846,108 @@
   .hero-layout-centered .hero-copy h1 .hero-focus{font-size:22px}
   .hero-layout-centered .hero-copy h1 .hero-title-operation{font-size:20.5px}
 }
+
+/* Nova fase: a órbita apresenta a plataforma; as frentes ficam em uma grade estável. */
+.new-phase-visual{
+  display:grid;
+  gap:20px;
+  min-width:0;
+}
+.new-phase-visual .new-phase-orbit{
+  width:100%;
+  min-height:390px;
+}
+.new-phase-node-list{
+  position:relative;
+  z-index:4;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.new-phase-node-list .new-phase-node{
+  position:relative;
+  inset:auto;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
+  align-items:center;
+  max-width:none;
+  min-height:64px;
+  padding:14px 16px;
+  border:1px solid #d7deee;
+  background:rgba(255,255,255,.76);
+  color:#0a1839;
+  box-shadow:none;
+  font-size:12px;
+  line-height:1.25;
+  backdrop-filter:blur(12px);
+}
+.new-phase-node-list .new-phase-node small{
+  color:#3155d9;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+/* Demonstrações: moldura editorial clara e módulos operacionais em azul. */
+.architecture .ai-story-frame{
+  border-color:rgba(53,80,168,.17);
+  background:
+    radial-gradient(circle at 78% 10%,rgba(87,116,231,.1),transparent 36%),
+    linear-gradient(145deg,rgba(255,255,255,.99),rgba(242,246,255,.99));
+  color:#0a1839;
+  box-shadow:0 26px 64px rgba(0,18,72,.18),inset 0 1px rgba(255,255,255,.88);
+}
+.architecture .ai-story-frame:after{
+  opacity:.028;
+  filter:none;
+}
+.architecture .ai-demo-heading{
+  border-color:rgba(40,67,149,.14);
+}
+.architecture .ai-demo-heading>strong{color:#0a1839}
+.architecture .ai-demo-heading>p,
+.architecture .ai-story-step p{color:#596985}
+.architecture .ai-demo-products li{color:#53627d}
+.architecture .ai-story-frame .ai-demo-canvas{background:transparent}
+.architecture .qa-demo-flow article,
+.architecture .sap-code-panel,
+.architecture .sap-review-panel article,
+.architecture .hyper-event,
+.architecture .hyper-agent-list span,
+.architecture .hyper-core{
+  border-color:rgba(110,139,245,.34);
+  background:
+    radial-gradient(circle at 92% 8%,rgba(102,130,242,.25),transparent 38%),
+    linear-gradient(145deg,#183d91,#0a245a);
+  color:#fff;
+  box-shadow:0 14px 32px rgba(12,42,108,.17);
+}
+.architecture .qa-demo-flow article small,
+.architecture .sap-code-panel small,
+.architecture .sap-review-panel article small,
+.architecture .hyper-event small,
+.architecture .hyper-agent-list span small{color:#b8c8f3}
+.architecture .qa-demo-flow article strong,
+.architecture .sap-code-panel strong,
+.architecture .sap-review-panel article strong,
+.architecture .hyper-event strong,
+.architecture .hyper-agent-list span strong,
+.architecture .hyper-core strong{color:#fff}
+.architecture .ai-story-progress-only>i{background:rgba(39,67,151,.12)}
+
+@media(max-width:700px){
+  .new-phase-visual .new-phase-orbit{
+    min-height:330px;
+    margin:0;
+    transform:none;
+  }
+  .new-phase-node-list{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .new-phase-node-list .new-phase-node{
+    min-height:52px;
+    padding:11px 14px;
+  }
+}

@@ -38,9 +38,9 @@ for (const relativeFile of pages) {
     .replace(/<footer\b[\s\S]*?<\/footer>/, sharedFooter)
     .replace(
       /<link rel="stylesheet" href="\.\.\/solution\.css\?v=[^"]+">(?:\s*<link rel="stylesheet" href="\.\.\/shared-chrome\.css\?v=[^"]+">)?/,
-      '<link rel="stylesheet" href="../solution.css?v=20260723.4">\n<link rel="stylesheet" href="../shared-chrome.css?v=20260723.4">',
+      '<link rel="stylesheet" href="../solution.css?v=20260723.6">\n<link rel="stylesheet" href="../shared-chrome.css?v=20260723.5">',
     )
-    .replace(/\.\.\/solution\.js\?v=[^"]+/, "../solution.js?v=20260723.4");
+    .replace(/\.\.\/solution\.js\?v=[^"]+/, "../solution.js?v=20260723.5");
 
   fs.writeFileSync(file, html, "utf8");
   console.log(`Sincronizado: ${relativeFile}`);
