@@ -24,8 +24,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles-refinement.css">
+  <link rel="stylesheet" href="styles.css?v=20260723.1">
+  <link rel="stylesheet" href="styles-refinement.css?v=20260723.1">
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (!location.hash) scrollTo(0, 0);
+    addEventListener('pageshow', () => {
+      if (!location.hash) scrollTo(0, 0);
+    }, { once: true });
+  </script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -189,7 +196,10 @@
         <div class="new-phase-orbit reveal" aria-label="Prime Control AI aplicada a três frentes da operação">
           <span class="new-phase-ring new-phase-ring-one" aria-hidden="true"></span>
           <span class="new-phase-ring new-phase-ring-two" aria-hidden="true"></span>
-          <div class="new-phase-core"><img src="assets/logo-primecontrolai.svg" alt="Prime Control AI"></div>
+          <div class="new-phase-core">
+            <img src="assets/favicon-prime-control.png" alt="" aria-hidden="true">
+            <strong>Prime Control <em>AI</em></strong>
+          </div>
           <span class="new-phase-node node-quality">Qualidade &amp; Experiência</span>
           <span class="new-phase-node node-sap">Serviços SAP</span>
           <span class="new-phase-node node-hyper">Hiperautomação</span>
@@ -309,30 +319,6 @@
           </div>
         </div>
 
-        <div class="ai-portfolio-band reveal" aria-labelledby="ai-portfolio-band-title">
-          <div class="ai-portfolio-band-heading">
-            <span>Portfólio complementar</span>
-            <h3 id="ai-portfolio-band-title">Soluções independentes dos fluxos demonstrados.</h3>
-          </div>
-          <div class="ai-portfolio-group" aria-label="Soluções independentes de Qualidade e Experiência">
-            <strong>Qualidade &amp; Experiência</strong>
-            <ul>
-              <li>Prime Smartfarm AI</li>
-              <li>Prime Test Data Management (TDM) AI</li>
-              <li>Prime Service Virtualization (SV) AI</li>
-              <li>Prime Bench AI</li>
-              <li>Prime Voice AI</li>
-            </ul>
-          </div>
-          <div class="ai-portfolio-group" aria-label="Soluções independentes de Serviços SAP">
-            <strong>Serviços SAP</strong>
-            <ul>
-              <li>Prime SAP Clean Core AI</li>
-              <li>Prime SAP Code AI</li>
-              <li>Prime ChatSync AI</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -561,6 +547,6 @@
       });
     })();
   </script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260723.1"></script>
 </body>
 </html>
