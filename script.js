@@ -152,6 +152,7 @@
     const storyVisuals = [...aiStory.querySelectorAll('[data-ai-story-visual]')];
     const storyCounter = aiStory.querySelector('[data-ai-story-counter]');
     const storyProgress = aiStory.querySelector('[data-ai-story-progress]');
+    const storyMobileQuery = window.matchMedia('(max-width: 900px)');
     let currentStoryKey = storySteps[0]?.dataset.aiStoryStep || 'qa';
 
     const activateStory = key => {
@@ -159,7 +160,11 @@
       if (index < 0) return;
       currentStoryKey = key;
 
-      storySteps.forEach(step => step.classList.toggle('is-active', step.dataset.aiStoryStep === key));
+      storySteps.forEach(step => {
+        const active = step.dataset.aiStoryStep === key;
+        step.classList.toggle('is-active', active);
+        step.hidden = storyMobileQuery.matches && !active;
+      });
       storyTabs.forEach(tab => {
         const active = tab.dataset.aiStoryTab === key;
         tab.setAttribute('aria-selected', String(active));
@@ -200,7 +205,15 @@
         const target = storySteps.find(step => step.dataset.aiStoryStep === tab.dataset.aiStoryTab);
         if (!target) return;
         activateStory(tab.dataset.aiStoryTab);
-        const stickyOffset = window.innerWidth > 900 ? 190 : 116;
+        if (storyMobileQuery.matches) {
+          tab.scrollIntoView({
+            behavior: reducedMotion ? 'auto' : 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+          return;
+        }
+        const stickyOffset = 190;
         window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top - stickyOffset, behavior: reducedMotion ? 'auto' : 'smooth' });
       });
       tab.addEventListener('keydown', event => {
@@ -224,7 +237,10 @@
     });
 
     window.addEventListener('scroll', requestStorySync, { passive: true });
-    window.addEventListener('resize', requestStorySync);
+    window.addEventListener('resize', () => {
+      activateStory(currentStoryKey);
+      requestStorySync();
+    });
     activateStory(currentStoryKey);
     requestStorySync();
   }

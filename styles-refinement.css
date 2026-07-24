@@ -1027,6 +1027,13 @@
   .architecture-clean-test .ai-story-tabs{
     background:rgba(246,249,255,.96);
   }
+  .architecture-clean-test .ai-story-step[hidden]{
+    display:none!important;
+  }
+  .architecture-clean-test .ai-story-step.is-active{
+    display:flex;
+    animation:clean-story-mobile-in .42s var(--ease) both;
+  }
 }
 
 @media(max-width:700px){
@@ -1038,4 +1045,13 @@
   .architecture-clean-test .ai-story-tabs{
     box-shadow:0 10px 24px rgba(22,50,116,.05);
   }
+}
+
+@keyframes clean-story-mobile-in{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .architecture-clean-test .ai-story-step.is-active{animation:none}
 }
