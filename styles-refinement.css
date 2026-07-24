@@ -1106,3 +1106,25 @@
   .architecture-clean-test .ai-story-step.is-active,
   .architecture-clean-test .ai-story-step.is-active .ai-story-mobile-visual{animation:none}
 }
+
+/* Mobile: keep each tab infographic centered and simplify the orchestration core. */
+@media(max-width:900px){
+  .architecture-clean-test .ai-story-step{
+    width:100%;
+    padding-inline:0;
+  }
+  .architecture-clean-test .ai-story-mobile-visual{
+    width:min(100%,680px);
+    margin:28px auto 0;
+  }
+  .architecture-clean-test .ai-story-mobile-visual .ai-demo-canvas{
+    width:100%;
+    margin-inline:auto;
+  }
+  .architecture-clean-test .ai-story-mobile-visual .hyper-core strong{
+    display:none;
+  }
+  .architecture-clean-test .ai-story-mobile-visual .hyper-core .pc-symbol{
+    margin:0;
+  }
+}
