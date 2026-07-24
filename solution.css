@@ -352,24 +352,24 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
 
 /* One visual system, with a restrained identity accent for each area. */
 .solution-page{
-  --area-accent:#6d58d8;
-  --area-accent-light:#b6a8ff;
-  --area-rgb:109,88,216;
+  --area-accent:#6653be;
+  --area-accent-light:#b9aff2;
+  --area-rgb:102,83,190;
 }
 .solution-quality{
-  --area-accent:#6d58d8;
-  --area-accent-light:#b6a8ff;
-  --area-rgb:109,88,216;
+  --area-accent:#6653be;
+  --area-accent-light:#b9aff2;
+  --area-rgb:102,83,190;
 }
 .solution-sap{
-  --area-accent:#0878b8;
-  --area-accent-light:#72c9f5;
-  --area-rgb:8,120,184;
+  --area-accent:#008fc9;
+  --area-accent-light:#55c7f4;
+  --area-rgb:0,143,201;
 }
 .solution-hyper{
-  --area-accent:#d95f16;
-  --area-accent-light:#ff9b59;
-  --area-rgb:217,95,22;
+  --area-accent:#bb5d2e;
+  --area-accent-light:#eda170;
+  --area-rgb:187,93,46;
 }
 .solution-page .hero .eyebrow{color:var(--area-accent-light)}
 .solution-page .hero h1 strong{color:var(--area-accent-light)}
@@ -389,7 +389,17 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
   background:var(--area-accent-light);
   box-shadow:0 0 20px var(--area-accent);
 }
-.solution-page .hero-visual .orbit i:last-child{background:var(--orange)}
+.solution-page .hero-visual .orbit i:last-child{
+  background:var(--area-accent-light);
+  box-shadow:0 0 16px rgba(var(--area-rgb),.72);
+}
+.solution-hyper .hero-visual .orbit{
+  border-color:rgba(var(--area-rgb),.34);
+  box-shadow:0 0 54px rgba(var(--area-rgb),.08);
+}
+.solution-hyper .hero-visual .orbit:before,
+.solution-hyper .hero-visual .orbit:after{border-color:rgba(var(--area-rgb),.13)}
+.solution-page .hero-visual .visual-tags{display:none!important}
 .solution-page .visual-core{
   background:radial-gradient(circle at 34% 25%,rgba(var(--area-rgb),.92),#071943 72%);
   box-shadow:0 0 62px rgba(var(--area-rgb),.36);
@@ -417,9 +427,16 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
   box-shadow:0 15px 35px rgba(19,41,98,.07);
 }
 .solution-page .cta{
-  background:linear-gradient(110deg,var(--area-accent),#5771ed);
+  background:linear-gradient(110deg,#284bc9,#5876ff);
+  color:#fff;
   font-family:var(--body);
   font-weight:700;
+  box-shadow:0 16px 34px rgba(33,69,190,.2);
+}
+.solution-page .cta:hover,
+.solution-page .cta:focus-visible{
+  background:linear-gradient(110deg,#203fae,#4966e5);
+  color:#fff;
 }
 .solution-page .link{
   font-family:var(--body);
@@ -433,7 +450,7 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 12% 20%,rgba(var(--area-rgb),.28),transparent 30%),
+    radial-gradient(circle at 12% 20%,rgba(94,123,235,.22),transparent 30%),
     linear-gradient(132deg,#071a45 0%,#173f9d 58%,#3558d8 100%);
 }
 .solution-page .solution-contact:before{
@@ -473,7 +490,18 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
   box-shadow:0 30px 78px rgba(0,9,37,.26);
 }
 .solution-page .solution-hubspot .hs-button{
-  background:linear-gradient(110deg,var(--area-accent),#5771ed);
+  background:linear-gradient(110deg,#284bc9,#5876ff);
+}
+
+.solution-page .conversion{
+  background:linear-gradient(118deg,#edf3ff 0%,#f8faff 58%,#e8efff 100%);
+  color:#071633;
+  border-top:1px solid rgba(55,85,187,.12);
+  border-bottom:1px solid rgba(55,85,187,.12);
+}
+.solution-page .conversion .cta{
+  background:linear-gradient(110deg,#284bc9,#5876ff);
+  color:#fff;
 }
 
 @media(max-width:620px){
