@@ -951,3 +951,91 @@
     padding:11px 14px;
   }
 }
+
+/* Teste visual: a narrativa de aplicações passa a ser uma dobra clean completa.
+   O painel claro deixa de parecer um elemento isolado dentro de um bloco navy. */
+.architecture.architecture-clean-test{
+  background:
+    radial-gradient(circle at 82% 12%,rgba(83,111,229,.13),transparent 31%),
+    radial-gradient(circle at 10% 72%,rgba(114,151,255,.08),transparent 32%),
+    linear-gradient(180deg,#edf3ff 0%,#f9fbff 24%,#f5f8ff 100%);
+  color:#0a1839;
+  border-top:1px solid rgba(48,81,202,.08);
+  border-bottom:1px solid rgba(48,81,202,.1);
+}
+.architecture.architecture-clean-test:before{
+  width:680px;
+  height:680px;
+  left:auto;
+  right:-380px;
+  top:16%;
+  border-color:rgba(48,81,202,.09);
+  box-shadow:0 0 0 72px rgba(48,81,202,.018),0 0 0 144px rgba(48,81,202,.012);
+  opacity:1;
+}
+.architecture.architecture-clean-test .architecture-grid{
+  opacity:.055;
+  background-image:
+    linear-gradient(rgba(48,81,202,.16) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(48,81,202,.16) 1px,transparent 1px);
+  mask-image:linear-gradient(90deg,transparent 3%,#000 38%,#000 82%,transparent);
+}
+.architecture-clean-test .section-tag-dark{color:#6c7890}
+.architecture-clean-test .section-tag-dark span{color:#3155d9}
+.architecture-clean-test .display{color:#0a1839}
+.architecture-clean-test .display em{color:#3155d9}
+.architecture-clean-test .section-intro{color:#596985}
+.architecture-clean-test .architecture-intro-actions .text-link,
+.architecture-clean-test .ai-story-step>.text-link{color:#17294f}
+.architecture-clean-test .architecture-intro-actions .text-link:hover,
+.architecture-clean-test .ai-story-step>.text-link:hover{color:#3155d9}
+.architecture-clean-test .ai-story-tabs{
+  border-bottom-color:rgba(45,69,133,.16);
+  background:rgba(246,249,255,.9);
+  box-shadow:0 14px 34px rgba(22,50,116,.055);
+  backdrop-filter:blur(18px);
+}
+.architecture-clean-test .ai-story-tabs button{color:#687691}
+.architecture-clean-test .ai-story-tabs button:hover{
+  color:#0a1839;
+  background:rgba(49,85,217,.045);
+}
+.architecture-clean-test .ai-story-tabs button[aria-selected=true]{
+  color:#0a1839;
+  background:transparent;
+}
+.architecture-clean-test .ai-story-tabs button:after{
+  background:linear-gradient(90deg,#3155d9,#7590ff);
+}
+.architecture-clean-test .ai-story-step{color:#0a1839}
+.architecture-clean-test .ai-story-index{color:#e86722}
+.architecture-clean-test .ai-story-step h3{color:#0a1839}
+.architecture-clean-test .ai-story-step p{color:#596985}
+.architecture-clean-test .ai-story-frame{
+  box-shadow:0 24px 58px rgba(25,55,126,.12),inset 0 1px rgba(255,255,255,.9);
+}
+.architecture-clean-test .ai-story-progress-only>i{background:rgba(39,67,151,.12)}
+.architecture-clean-test .ai-story-progress-only>i b{
+  background:linear-gradient(90deg,#3155d9,#7993ff);
+}
+
+@media(max-width:900px){
+  .architecture.architecture-clean-test:before{
+    right:-500px;
+    opacity:.55;
+  }
+  .architecture-clean-test .ai-story-tabs{
+    background:rgba(246,249,255,.96);
+  }
+}
+
+@media(max-width:700px){
+  .architecture.architecture-clean-test{
+    background:
+      radial-gradient(circle at 100% 4%,rgba(83,111,229,.12),transparent 27%),
+      linear-gradient(180deg,#eef3ff 0%,#fafcff 28%,#f5f8ff 100%);
+  }
+  .architecture-clean-test .ai-story-tabs{
+    box-shadow:0 10px 24px rgba(22,50,116,.05);
+  }
+}
