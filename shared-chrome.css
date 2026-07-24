@@ -5,11 +5,10 @@
   z-index:100;
   inset:0 0 auto;
   height:88px;
-  padding:0 clamp(20px,4vw,72px);
-  display:grid;
-  grid-template-columns:minmax(260px,1fr) auto minmax(260px,1fr);
+  padding:0 max(4vw,calc((100vw - 1280px)/2));
+  display:flex;
   align-items:center;
-  gap:30px;
+  gap:32px;
   isolation:isolate;
   border-bottom:1px solid rgba(154,177,255,.14);
   background:rgba(2,15,43,.54);
@@ -51,16 +50,15 @@
 .standard-topbar .brand-ai{
   width:290px;
   min-width:0;
-  margin:0;
-  justify-self:start;
+  flex:0 0 290px;
+  margin:0 4px 0 0;
 }
 .standard-topbar .brand-ai img{width:100%;height:auto}
 .standard-topbar nav:not(.mobile-nav){
   display:flex;
   align-items:center;
   gap:28px;
-  justify-self:center;
-  margin:0;
+  margin:0 0 0 auto;
 }
 .standard-topbar nav a,
 .standard-topbar .solutions-toggle{
@@ -192,7 +190,7 @@
 .standard-topbar .top-cta{
   min-height:auto;
   padding:10px 0;
-  justify-self:end;
+  margin-left:0;
   display:inline-flex;
   align-items:center;
   gap:14px;
@@ -335,7 +333,7 @@
 
 @media(max-width:1200px) and (min-width:1001px){
   .standard-topbar{gap:20px}
-  .standard-topbar .brand-ai{width:245px}
+  .standard-topbar .brand-ai{width:245px;flex-basis:245px}
   .standard-topbar nav:not(.mobile-nav){gap:17px}
   .standard-topbar nav a,.standard-topbar .solutions-toggle{font-size:13px}
   .standard-topbar .top-cta{font-size:10px}
@@ -347,7 +345,7 @@
     display:flex;
     gap:20px;
   }
-  .standard-topbar .brand-ai{width:min(245px,calc(100vw - 92px));margin-right:auto}
+  .standard-topbar .brand-ai{width:min(245px,calc(100vw - 92px));flex:0 1 auto;margin-right:auto}
   .standard-topbar nav:not(.mobile-nav),
   .standard-topbar .top-cta{display:none}
   .standard-topbar .menu-toggle{

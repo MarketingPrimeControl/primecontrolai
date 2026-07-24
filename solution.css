@@ -349,3 +349,144 @@ main,.hero-grid,.hero-copy,.hero-visual,.section-head,.security-grid,.faq-grid,.
   .hero h1{font-size:27.5px}
   .hero h1 strong{font-size:.92em}
 }
+
+/* One visual system, with a restrained identity accent for each area. */
+.solution-page{
+  --area-accent:#6d58d8;
+  --area-accent-light:#b6a8ff;
+  --area-rgb:109,88,216;
+}
+.solution-quality{
+  --area-accent:#6d58d8;
+  --area-accent-light:#b6a8ff;
+  --area-rgb:109,88,216;
+}
+.solution-sap{
+  --area-accent:#0878b8;
+  --area-accent-light:#72c9f5;
+  --area-rgb:8,120,184;
+}
+.solution-hyper{
+  --area-accent:#d95f16;
+  --area-accent-light:#ff9b59;
+  --area-rgb:217,95,22;
+}
+.solution-page .hero .eyebrow{color:var(--area-accent-light)}
+.solution-page .hero h1 strong{color:var(--area-accent-light)}
+.solution-page .hero-visual{
+  display:grid;
+  place-items:center;
+  width:min(100%,500px);
+  min-height:430px;
+}
+.solution-page .hero-visual .orbit,
+.solution-page .hero-visual .visual-core{top:50%}
+.solution-page .hero-visual .orbit{
+  border-color:rgba(var(--area-rgb),.55);
+  box-shadow:0 0 70px rgba(var(--area-rgb),.13);
+}
+.solution-page .hero-visual .orbit i{
+  background:var(--area-accent-light);
+  box-shadow:0 0 20px var(--area-accent);
+}
+.solution-page .hero-visual .orbit i:last-child{background:var(--orange)}
+.solution-page .visual-core{
+  background:radial-gradient(circle at 34% 25%,rgba(var(--area-rgb),.92),#071943 72%);
+  box-shadow:0 0 62px rgba(var(--area-rgb),.36);
+}
+.solution-page .visual-core b{max-width:150px}
+.solution-page .tag{color:var(--area-accent)}
+.solution-page .dark .tag{color:var(--area-accent-light)}
+.solution-page .section h2 strong{color:var(--area-accent)}
+.solution-page .dark .section h2 strong{color:var(--area-accent-light)}
+.solution-page .flow article{
+  border-color:rgba(var(--area-rgb),.24);
+  box-shadow:0 18px 44px rgba(18,39,92,.09),inset 0 3px 0 rgba(var(--area-rgb),.78);
+}
+.solution-page .flow small{color:var(--area-accent)}
+.solution-page .flow article:not(:last-child):after{background:var(--area-accent-light)}
+.solution-page .capability{
+  border-color:rgba(var(--area-rgb),.28);
+  box-shadow:0 18px 40px rgba(0,7,30,.16),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.solution-page .capability:first-child{
+  background:linear-gradient(145deg,rgba(var(--area-rgb),.92),#10275e);
+}
+.solution-page .security-list article{
+  border-color:rgba(var(--area-rgb),.22);
+  box-shadow:0 15px 35px rgba(19,41,98,.07);
+}
+.solution-page .cta{
+  background:linear-gradient(110deg,var(--area-accent),#5771ed);
+  font-family:var(--body);
+  font-weight:700;
+}
+.solution-page .link{
+  font-family:var(--body);
+  font-weight:700;
+}
+.solution-page .conversion h2{
+  font:600 clamp(34px,4vw,55px)/1.05 var(--display);
+  letter-spacing:-.02em;
+}
+.solution-page .solution-contact{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 20%,rgba(var(--area-rgb),.28),transparent 30%),
+    linear-gradient(132deg,#071a45 0%,#173f9d 58%,#3558d8 100%);
+}
+.solution-page .solution-contact:before{
+  content:"";
+  position:absolute;
+  inset:-25% -10%;
+  pointer-events:none;
+  opacity:.17;
+  background:repeating-radial-gradient(circle at 12% 92%,transparent 0 42px,rgba(150,177,255,.42) 43px 44px);
+}
+.solution-page .solution-contact-grid{position:relative;z-index:1}
+.solution-contact-copy h2{
+  font:300 clamp(44px,5vw,72px)/.98 var(--display);
+  letter-spacing:-.035em;
+}
+.solution-contact-copy h2 strong{
+  display:block;
+  color:var(--area-accent-light);
+  font-weight:600;
+}
+.solution-form-heading{margin-bottom:28px}
+.solution-form-heading span{
+  color:var(--area-accent);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.solution-form-heading h3{
+  max-width:500px;
+  margin:11px 0 0;
+  font:400 clamp(30px,3vw,43px)/1 var(--display);
+  letter-spacing:-.025em;
+}
+.solution-page .solution-form-card{
+  border:1px solid rgba(var(--area-rgb),.18);
+  box-shadow:0 30px 78px rgba(0,9,37,.26);
+}
+.solution-page .solution-hubspot .hs-button{
+  background:linear-gradient(110deg,var(--area-accent),#5771ed);
+}
+
+@media(max-width:620px){
+  .solution-page .hero-visual{
+    width:100%;
+    min-height:330px;
+  }
+  .solution-page .hero-visual .orbit{
+    top:50%;
+    width:min(82vw,310px);
+    height:min(82vw,310px);
+  }
+  .solution-page .hero-visual .visual-core{top:50%}
+  .solution-contact-copy h2{font-size:clamp(34px,9.5vw,44px)}
+  .solution-form-heading h3{font-size:clamp(29px,8.5vw,37px)}
+}
