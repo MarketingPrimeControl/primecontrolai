@@ -2234,6 +2234,44 @@ main,.hero-layout,.hero-copy,.hero-control,.two-col,.architecture-head,.ai-story
   .new-phase-copy{max-width:760px}
   .new-phase-orbit{width:min(100%,650px);margin-inline:auto}
 }
+
+/* Mobile infographic: clean canvas with high-contrast flow cards. */
+@media(max-width:900px){
+  .ai-story-mobile-visual{
+    padding:12px;
+    border:1px solid #dce3f2;
+    background:
+      radial-gradient(circle at 92% 8%,rgba(87,113,237,.1),transparent 34%),
+      linear-gradient(145deg,#fff,#f4f7fd);
+    box-shadow:0 22px 55px rgba(17,39,91,.12);
+  }
+  .ai-story-mobile-visual .ai-demo-canvas{
+    color:var(--text);
+    background:transparent;
+  }
+  .ai-story-mobile-visual .ai-demo-heading{
+    border-bottom-color:rgba(48,81,202,.14);
+  }
+  .ai-story-mobile-visual .ai-demo-heading>strong{
+    color:var(--text);
+  }
+  .ai-story-mobile-visual .ai-demo-heading>p{
+    margin:7px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.45;
+  }
+  .ai-story-mobile-visual .qa-demo-flow article,
+  .ai-story-mobile-visual .sap-code-panel,
+  .ai-story-mobile-visual .sap-review-panel article,
+  .ai-story-mobile-visual .hyper-event,
+  .ai-story-mobile-visual .hyper-agent-list span{
+    color:#fff;
+    background:linear-gradient(145deg,#173e9b,#071b49);
+    box-shadow:0 14px 30px rgba(12,37,95,.16);
+  }
+}
+
 @media(max-width:700px){
   .new-phase{padding:78px 0}
   .new-phase-copy h2{font-size:clamp(42px,12vw,57px)}
