@@ -154,8 +154,10 @@
     const storyProgress = aiStory.querySelector('[data-ai-story-progress]');
     const storyMobileQuery = window.matchMedia('(max-width: 900px)');
     let currentStoryKey = storySteps[0]?.dataset.aiStoryStep || 'qa';
+    let storyTouchStartX = 0;
+    let storyTouchStartY = 0;
 
-    const activateStory = key => {
+    const activateStory = (key, options = {}) => {
       const index = storySteps.findIndex(step => step.dataset.aiStoryStep === key);
       if (index < 0) return;
       currentStoryKey = key;
@@ -164,6 +166,7 @@
         const active = step.dataset.aiStoryStep === key;
         step.classList.toggle('is-active', active);
         step.hidden = storyMobileQuery.matches && !active;
+        step.setAttribute('aria-hidden', String(!active && storyMobileQuery.matches));
       });
       storyTabs.forEach(tab => {
         const active = tab.dataset.aiStoryTab === key;
@@ -178,6 +181,24 @@
 
       if (storyCounter) storyCounter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(storySteps.length).padStart(2, '0')}`;
       if (storyProgress) storyProgress.style.transform = `scaleX(${(index + 1) / storySteps.length})`;
+
+      if (storyMobileQuery.matches && options.focusTab) {
+        storyTabs[index]?.focus({ preventScroll: true });
+      }
+      if (storyMobileQuery.matches && options.scrollTab !== false) {
+        storyTabs[index]?.scrollIntoView({
+          behavior: reducedMotion ? 'auto' : 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    };
+
+    const activateStoryByOffset = offset => {
+      const currentIndex = storySteps.findIndex(step => step.dataset.aiStoryStep === currentStoryKey);
+      const nextIndex = Math.min(storySteps.length - 1, Math.max(0, currentIndex + offset));
+      if (nextIndex === currentIndex) return;
+      activateStory(storySteps[nextIndex].dataset.aiStoryStep, { focusTab: false });
     };
 
     const syncStoryToViewport = () => {
@@ -201,16 +222,12 @@
     };
 
     storyTabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => {
+      tab.addEventListener('click', event => {
+        event.preventDefault();
         const target = storySteps.find(step => step.dataset.aiStoryStep === tab.dataset.aiStoryTab);
         if (!target) return;
-        activateStory(tab.dataset.aiStoryTab);
+        activateStory(tab.dataset.aiStoryTab, { focusTab: false });
         if (storyMobileQuery.matches) {
-          tab.scrollIntoView({
-            behavior: reducedMotion ? 'auto' : 'smooth',
-            block: 'nearest',
-            inline: 'center'
-          });
           return;
         }
         const stickyOffset = 190;
@@ -224,8 +241,7 @@
         if (event.key === 'ArrowLeft') next = (index - 1 + storyTabs.length) % storyTabs.length;
         if (event.key === 'Home') next = 0;
         if (event.key === 'End') next = storyTabs.length - 1;
-        storyTabs[next].focus();
-        storyTabs[next].click();
+        activateStory(storyTabs[next].dataset.aiStoryTab, { focusTab: true });
       });
     });
 
@@ -236,12 +252,28 @@
       if (mobileTarget && source) mobileTarget.append(source.cloneNode(true));
     });
 
+    aiStory.addEventListener('touchstart', event => {
+      if (!storyMobileQuery.matches || event.touches.length !== 1) return;
+      storyTouchStartX = event.touches[0].clientX;
+      storyTouchStartY = event.touches[0].clientY;
+    }, { passive: true });
+
+    aiStory.addEventListener('touchend', event => {
+      if (!storyMobileQuery.matches || event.changedTouches.length !== 1) return;
+      const deltaX = event.changedTouches[0].clientX - storyTouchStartX;
+      const deltaY = event.changedTouches[0].clientY - storyTouchStartY;
+      if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return;
+      activateStoryByOffset(deltaX < 0 ? 1 : -1);
+    }, { passive: true });
+
     window.addEventListener('scroll', requestStorySync, { passive: true });
-    window.addEventListener('resize', () => {
-      activateStory(currentStoryKey);
+    const handleStoryViewportChange = () => {
+      activateStory(currentStoryKey, { scrollTab: false });
       requestStorySync();
-    });
-    activateStory(currentStoryKey);
+    };
+    window.addEventListener('resize', handleStoryViewportChange);
+    storyMobileQuery.addEventListener?.('change', handleStoryViewportChange);
+    activateStory(currentStoryKey, { scrollTab: false });
     requestStorySync();
   }
 

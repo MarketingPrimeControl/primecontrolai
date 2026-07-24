@@ -1034,6 +1034,51 @@
     display:flex;
     animation:clean-story-mobile-in .42s var(--ease) both;
   }
+  .architecture-clean-test .ai-story-tabs{
+    overscroll-behavior-x:contain;
+    touch-action:pan-x;
+  }
+  .architecture-clean-test .ai-story-tabs button{
+    touch-action:manipulation;
+  }
+  .architecture-clean-test .ai-story-mobile-visual{
+    position:relative;
+    isolation:isolate;
+    border:1px solid rgba(49,85,217,.14);
+    background:
+      radial-gradient(circle at 82% 12%,rgba(94,124,238,.12),transparent 34%),
+      linear-gradient(145deg,#f8faff,#eef3ff);
+    box-shadow:0 24px 54px rgba(25,55,126,.13),inset 0 1px rgba(255,255,255,.96);
+    touch-action:pan-y;
+  }
+  .architecture-clean-test .ai-story-mobile-visual:after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    inset:0;
+    pointer-events:none;
+    background-image:
+      linear-gradient(rgba(48,81,202,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(48,81,202,.045) 1px,transparent 1px);
+    background-size:52px 52px;
+    mask-image:linear-gradient(135deg,#000,transparent 78%);
+  }
+  .architecture-clean-test .ai-story-mobile-visual .ai-demo-canvas{
+    color:#0a1839;
+    background:transparent;
+  }
+  .architecture-clean-test .ai-story-mobile-visual .ai-demo-heading{
+    border-color:rgba(45,69,133,.13);
+  }
+  .architecture-clean-test .ai-story-mobile-visual .ai-demo-heading>strong{
+    color:#0a1839;
+  }
+  .architecture-clean-test .ai-story-mobile-visual .ai-demo-heading>p{
+    color:#596985;
+  }
+  .architecture-clean-test .ai-story-step.is-active .ai-story-mobile-visual{
+    animation:clean-story-visual-in .48s var(--ease) both;
+  }
 }
 
 @media(max-width:700px){
@@ -1052,6 +1097,12 @@
   to{opacity:1;transform:none}
 }
 
+@keyframes clean-story-visual-in{
+  from{opacity:.35;transform:translateY(10px) scale(.988)}
+  to{opacity:1;transform:none}
+}
+
 @media(prefers-reduced-motion:reduce){
-  .architecture-clean-test .ai-story-step.is-active{animation:none}
+  .architecture-clean-test .ai-story-step.is-active,
+  .architecture-clean-test .ai-story-step.is-active .ai-story-mobile-visual{animation:none}
 }
